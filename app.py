@@ -8,7 +8,7 @@ class IrrigationSystem:
             
         # Use more water when the temperature is high and humidity is low
         if moisture < 30:
-            return "High" if temperature > 26 else "Medium"
+            return "High" if temperature > 86 else "Medium"
         elif moisture < 60:
             return "Low"
         return "None"

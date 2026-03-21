@@ -53,3 +53,16 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository_owner }}/urbanplow-app:latest
             ghcr.io/${{ github.repository_owner }}/urbanplow-app:v1.0.${{ github.run_number }}
+
+  deploy:
+    name: Deploy to Production
+    needs: build-and-push
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulated Deployment Step
+        run: |
+          echo "Connecting to production server..."
+          echo "Pulling image: ghcr.io/${{ github.repository_owner }}/urbanplow-app:v1.0.${{ github.run_number }}"
+          echo "Restarting containers..."
+          echo "Deployment to https://prod.urbanplow.de successful!"
